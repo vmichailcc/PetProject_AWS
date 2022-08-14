@@ -1,5 +1,4 @@
-version: '3.8'
-
+version: '3.9'
 services:
   web:
     build:
@@ -43,17 +42,8 @@ services:
       - acme:/etc/acme.sh
     depends_on:
       - nginx-proxy
-  redis-celery:
-    image: redis:7.0.4-alpine
-  celery:
-    build:
-      context: ./pet
-      dockerfile: Dockerfile.prod
-    command: celery -A pet worker -B -l info
-    volumes:
-      - .:/home/pet
-    depends_on:
-      - redis-celery
+
+
 volumes:
   static_volume:
   media_volume:
