@@ -174,7 +174,7 @@ class StoreTests(APITestCase):
             "product": "8888Qwerty",
             "quantity": "1"
         }
-        response1 = self.client.post(url, data, format('json'))
+        self.client.post(url, data, format('json'))
 
         response = self.client.get(
             reverse('store_router-list'), {"status": "new"}

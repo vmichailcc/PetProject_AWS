@@ -5,7 +5,7 @@ from django.core.mail import EmailMessage
 
 from store.models import Order
 
-domain = os.environ.get("LOCAL_DOMAIN")
+domain = os.environ.get("VIRTUAL_HOST")
 
 
 @shared_task
@@ -16,7 +16,7 @@ def send_status_email_celery(pk, order_status):
         email_message = f"Вітаю, {order.owner}! " \
                         f"Ваше замовлення № {order.order_number} отримало статус - {order_status}. " \
                         f"Дякуємо!" \
-                        f"Ссилка на замовлення: {domain}/orders/{order.pk}"
+                        f"Ссилка на замовлення: http://{domain}/orders/{order.pk}"
 
         mail_recipient = order.owner.email
 

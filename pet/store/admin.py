@@ -10,7 +10,7 @@ from .models import Product, Pictures, ProductComment, Order
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ("get_image", "name", "vendor_code", "brand",  "price", "old_price", "availability", "is_published")
+    list_display = ("get_image", "name", "vendor_code", "brand", "price", "old_price", "availability", "is_published")
     list_filter = ("brand", "price", "availability", "is_published", "card_views")
     list_editable = ("is_published", )
     search_fields = ["name", "description", "brand", "id"]
