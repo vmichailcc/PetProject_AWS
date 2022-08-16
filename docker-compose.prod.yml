@@ -49,10 +49,9 @@ services:
     build: .
     command: celery -A pet worker -B -l info
     volumes:
-      - .:/pet
-
+      - .:/home/pet
     env_file:
-      - .env.dev
+      - ./.env.prod
     depends_on:
       - web
       - redis
